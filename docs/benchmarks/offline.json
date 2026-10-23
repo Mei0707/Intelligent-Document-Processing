@@ -1,0 +1,1131 @@
+{
+  "mode": "offline_lexical_smoke",
+  "created_at": "2026-10-23T20:21:37.949836+00:00",
+  "k": 3,
+  "setup": {
+    "latency_ms": 0.9475420229136944,
+    "usage": {
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cached_tokens": 0,
+      "response_cache_hits": 0,
+      "calls": 0,
+      "estimated_cost_usd": 0.0,
+      "cost_known": true
+    }
+  },
+  "config": {
+    "chat_model": "gpt-4o-mini",
+    "answer_model": "",
+    "complex_model": "",
+    "embedding_model": "text-embedding-3-small",
+    "reranker": "lexical",
+    "context_tokens": 6000,
+    "input_tokens": 12000,
+    "output_tokens": 1000,
+    "chunk_tokens": 400,
+    "overlap_tokens": 60,
+    "cache_ttl": 0,
+    "model_prices": {},
+    "repeats": 1
+  },
+  "comparisons": [
+    {
+      "strategy": "bm25",
+      "quality": "balanced",
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "answer_correctness": null,
+      "answer_token_f1": null,
+      "fact_coverage": null,
+      "citation_precision": null,
+      "latency_ms": {
+        "p50": 0.08329097181558609,
+        "p95": 0.3852705704048276
+      },
+      "retrieval_latency_ms": {
+        "p50": 0.0799158588051796,
+        "p95": 0.36422908306121826
+      },
+      "errors": 0,
+      "tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "results": [
+        {
+          "query_id": "invoice-deadline",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.36450009793043137,
+          "document_ids": [
+            1,
+            2,
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.3748750314116478,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "invoice-total",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.07499987259507179,
+          "document_ids": [
+            1,
+            3,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.07979199290275574,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "keyword-id",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.042082974687218666,
+          "document_ids": [
+            2,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.04641595296561718,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "renewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.0799158588051796,
+          "document_ids": [
+            3,
+            1,
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.08329097181558609,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "nonrenewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.36395806819200516,
+          "document_ids": [
+            4,
+            2,
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.3956661093980074,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "comparison",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.19766693003475666,
+          "document_ids": [
+            4,
+            3,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.20499993115663528,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "candidate",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.06762496195733547,
+          "document_ids": [
+            5,
+            6
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.07158308289945126,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "income",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.06387499161064625,
+          "document_ids": [
+            7,
+            5,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.06925011985003948,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "claim-status",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.11795805767178535,
+          "document_ids": [
+            8,
+            2,
+            6
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.12150011025369167,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "multi-invoice",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.16700010746717453,
+          "document_ids": [
+            2,
+            8,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.19762502051889896,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "unanswerable",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.07645785808563232,
+          "document_ids": [
+            2,
+            8,
+            1
+          ],
+          "recall_at_k": null,
+          "mrr": null,
+          "latency_ms": 0.07824995554983616,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        }
+      ]
+    },
+    {
+      "strategy": "vector",
+      "quality": "balanced",
+      "recall_at_k": 1.0,
+      "mrr": 0.95,
+      "answer_correctness": null,
+      "answer_token_f1": null,
+      "fact_coverage": null,
+      "citation_precision": null,
+      "latency_ms": {
+        "p50": 0.0988328829407692,
+        "p95": 0.1497919438406825
+      },
+      "retrieval_latency_ms": {
+        "p50": 0.09649991989135742,
+        "p95": 0.1459789928048849
+      },
+      "errors": 0,
+      "tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "results": [
+        {
+          "query_id": "invoice-deadline",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.17833290621638298,
+          "document_ids": [
+            1,
+            2,
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.18291687592864037,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "invoice-total",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.11362507939338684,
+          "document_ids": [
+            1,
+            3,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.11666701175272465,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "keyword-id",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.09600003249943256,
+          "document_ids": [
+            2,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.09854184463620186,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "renewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.09537488222122192,
+          "document_ids": [
+            3,
+            1,
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.09791692718863487,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "nonrenewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.09479094296693802,
+          "document_ids": [
+            4,
+            2,
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.09729107841849327,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "comparison",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.09587500244379044,
+          "document_ids": [
+            4,
+            3,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.09837490506470203,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "candidate",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.09170779958367348,
+          "document_ids": [
+            5,
+            6
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.0940829049795866,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "income",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.09649991989135742,
+          "document_ids": [
+            7,
+            5,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.0988328829407692,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "claim-status",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.0993749126791954,
+          "document_ids": [
+            8,
+            1,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.10195793583989143,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "multi-invoice",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.0974580179899931,
+          "document_ids": [
+            8,
+            1,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 0.5,
+          "latency_ms": 0.09995815344154835,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "unanswerable",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.09791692718863487,
+          "document_ids": [
+            8,
+            1,
+            2
+          ],
+          "recall_at_k": null,
+          "mrr": null,
+          "latency_ms": 0.09941705502569675,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        }
+      ]
+    },
+    {
+      "strategy": "hybrid",
+      "quality": "balanced",
+      "recall_at_k": 1.0,
+      "mrr": 0.95,
+      "answer_correctness": null,
+      "answer_token_f1": null,
+      "fact_coverage": null,
+      "citation_precision": null,
+      "latency_ms": {
+        "p50": 0.15425006859004498,
+        "p95": 0.1794584095478058
+      },
+      "retrieval_latency_ms": {
+        "p50": 0.15199999324977398,
+        "p95": 0.17620797734707594
+      },
+      "errors": 0,
+      "tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "results": [
+        {
+          "query_id": "invoice-deadline",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.17970800399780273,
+          "document_ids": [
+            1,
+            2,
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.18341699615120888,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "invoice-total",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.17270795069634914,
+          "document_ids": [
+            1,
+            3,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.1754998229444027,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "keyword-id",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.13116607442498207,
+          "document_ids": [
+            2,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.13370811939239502,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "renewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.15395809896290302,
+          "document_ids": [
+            3,
+            1,
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.15645800158381462,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "nonrenewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.15012500807642937,
+          "document_ids": [
+            4,
+            2,
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.15287520363926888,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "comparison",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.1555001363158226,
+          "document_ids": [
+            4,
+            3,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.15791715122759342,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "candidate",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.14587491750717163,
+          "document_ids": [
+            5,
+            6
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.14829193241894245,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "income",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.15199999324977398,
+          "document_ids": [
+            7,
+            5,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.15425006859004498,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "claim-status",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.16649998724460602,
+          "document_ids": [
+            8,
+            2,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.16870792023837566,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "multi-invoice",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.1436250749975443,
+          "document_ids": [
+            8,
+            2,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 0.5,
+          "latency_ms": 0.1461249776184559,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "unanswerable",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.1479999627918005,
+          "document_ids": [
+            8,
+            2,
+            1
+          ],
+          "recall_at_k": null,
+          "mrr": null,
+          "latency_ms": 0.14954106882214546,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        }
+      ]
+    },
+    {
+      "strategy": "hybrid_rerank",
+      "quality": "balanced",
+      "recall_at_k": 1.0,
+      "mrr": 0.95,
+      "answer_correctness": null,
+      "answer_token_f1": null,
+      "fact_coverage": null,
+      "citation_precision": null,
+      "latency_ms": {
+        "p50": 0.20774989388883114,
+        "p95": 0.24020811542868614
+      },
+      "retrieval_latency_ms": {
+        "p50": 0.20508281886577606,
+        "p95": 0.23745850194245577
+      },
+      "errors": 0,
+      "tokens": 0,
+      "estimated_cost_usd": 0.0,
+      "results": [
+        {
+          "query_id": "invoice-deadline",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.2191250678151846,
+          "document_ids": [
+            1,
+            2,
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.2225001808255911,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "invoice-total",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.24158298037946224,
+          "document_ids": [
+            1,
+            3,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.24454109370708466,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "keyword-id",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.15400000847876072,
+          "document_ids": [
+            2,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.15691621229052544,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "renewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.1964170951396227,
+          "document_ids": [
+            3,
+            1,
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.19904202781617641,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "nonrenewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.18704193644225597,
+          "document_ids": [
+            4,
+            2,
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.1894170418381691,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "comparison",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.20204088650643826,
+          "document_ids": [
+            4,
+            3,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.20449981093406677,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "candidate",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.17533404752612114,
+          "document_ids": [
+            5,
+            6
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.1777089200913906,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "income",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.20508281886577606,
+          "document_ids": [
+            7,
+            5,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.20774989388883114,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "claim-status",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.2333340235054493,
+          "document_ids": [
+            8,
+            2,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "latency_ms": 0.23587513715028763,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "multi-invoice",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.20608305931091309,
+          "document_ids": [
+            8,
+            2,
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 0.5,
+          "latency_ms": 0.20875013433396816,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "unanswerable",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 0.20787515677511692,
+          "document_ids": [
+            8,
+            2,
+            1
+          ],
+          "recall_at_k": null,
+          "mrr": null,
+          "latency_ms": 0.2094591036438942,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        }
+      ]
+    }
+  ],
+  "dataset_sha256": "6557f10c9d078f8a60dbc28f09a7c1df1151b8a16a9adfc4071bb23c896f8ed6"
+}

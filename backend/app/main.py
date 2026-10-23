@@ -4,9 +4,10 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from .db import SessionLocal, init_db
-from .routers import analytics, documents, search
-from .services.vector_store import index
+from .db import init_db
+from .monitoring import PrometheusMiddleware, metrics_response
+from .routers import analytics, documents, search, jobs
+from .telemetry import configure_telemetry
 
 logging.basicConfig(
     level=logging.INFO,
@@ -17,13 +18,11 @@ logging.basicConfig(
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     init_db()
-    # rebuild the in-memory vector index from any chunks already in the DB
-    db = SessionLocal()
+    provider = configure_telemetry("idp-api")
     try:
-        index.hydrate(db)
+        yield
     finally:
-        db.close()
-    yield
+        provider.shutdown()
 
 
 app = FastAPI(
@@ -40,12 +39,19 @@ app.add_middleware(
     allow_headers=["*"],
     allow_credentials=False,
 )
+app.add_middleware(PrometheusMiddleware)
 
 app.include_router(documents.router)
 app.include_router(search.router)
 app.include_router(analytics.router)
+app.include_router(jobs.router)
 
 
 @app.get("/api/health")
 def health():
     return {"status": "ok"}
+
+
+@app.get("/metrics", include_in_schema=False)
+def metrics():
+    return metrics_response()

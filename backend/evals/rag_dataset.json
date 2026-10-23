@@ -1,0 +1,285 @@
+{
+  "version": "1.0",
+  "description": "Synthetic business-document development set. Replace or extend with held-out production labels before making model decisions.",
+  "documents": [
+    {
+      "id": 1,
+      "filename": "acme-invoice.txt",
+      "category": "Invoice",
+      "text": "INVOICE INV-1042\nVendor: Acme Supplies\nBill to: Northwind Labs\nIssue date: 2026-01-10\nDue date: 2026-02-09\nTotal amount: 12500 USD. Payment terms: net 30 days. Late payments incur a 2 percent monthly fee.",
+      "expected_fields": {
+        "invoice_number": "INV-1042",
+        "vendor": "Acme Supplies",
+        "due_date": "2026-02-09",
+        "total_amount": 12500,
+        "currency": "USD"
+      }
+    },
+    {
+      "id": 2,
+      "filename": "globex-invoice.txt",
+      "category": "Invoice",
+      "text": "INVOICE INV-1043\nVendor: Globex Services\nBill to: Northwind Labs\nIssue date: 2026-01-12\nDue date: 2026-01-27\nTotal amount: 3200 EUR. This invoice covers network maintenance. Payment terms: net 15 days.",
+      "expected_fields": {
+        "invoice_number": "INV-1043",
+        "vendor": "Globex Services",
+        "total_amount": 3200,
+        "currency": "EUR"
+      }
+    },
+    {
+      "id": 3,
+      "filename": "northwind-contract.txt",
+      "category": "Contract",
+      "text": "SERVICE CONTRACT\nParties: Northwind Labs and Acme Supplies. Effective date: 2026-01-01. Expiration date: 2026-12-31. Renewal terms: automatic annual renewal unless either party gives 60 days written notice before expiration. Governing law: California. Acme must provide support within 4 hours for critical incidents.",
+      "expected_fields": {
+        "effective_date": "2026-01-01",
+        "expiration_date": "2026-12-31",
+        "governing_law": "California"
+      }
+    },
+    {
+      "id": 4,
+      "filename": "globex-contract.txt",
+      "category": "Contract",
+      "text": "MAINTENANCE CONTRACT\nParties: Globex Services and Northwind Labs. Effective date: 2026-02-01. Expiration date: 2027-01-31. Renewal requires a new signed agreement; there is no automatic renewal. Governing law: New York. Critical support response time is 24 hours.",
+      "expected_fields": {
+        "effective_date": "2026-02-01",
+        "expiration_date": "2027-01-31",
+        "governing_law": "New York"
+      }
+    },
+    {
+      "id": 5,
+      "filename": "jordan-resume.txt",
+      "category": "Resume",
+      "text": "Jordan Lee\nEmail: jordan@example.test\nSkills: Python, AWS, PostgreSQL. Jordan has 7 years of software engineering experience. Most recently Jordan built distributed data pipelines at Cedar Systems. Education: BS Computer Science, Harbor University, 2019.",
+      "expected_fields": {
+        "name": "Jordan Lee",
+        "email": "jordan@example.test",
+        "years_experience": 7
+      }
+    },
+    {
+      "id": 6,
+      "filename": "sam-resume.txt",
+      "category": "Resume",
+      "text": "Sam Patel\nEmail: sam@example.test\nSkills: Java, Azure, Kubernetes. Sam has 4 years of software engineering experience. Sam maintained financial reporting services at Elm Finance. Education: BS Software Engineering, Valley College, 2022.",
+      "expected_fields": {
+        "name": "Sam Patel",
+        "email": "sam@example.test",
+        "years_experience": 4
+      }
+    },
+    {
+      "id": 7,
+      "filename": "cedar-financial-report.txt",
+      "category": "Financial Report",
+      "text": "Cedar Systems Annual Financial Report\nPeriod: fiscal year 2025. Revenue: 8000000 USD. Net income: 1200000 USD. Revenue increased 25 percent compared with fiscal year 2024. Recurring cloud subscriptions contributed 60 percent of revenue.",
+      "expected_fields": {
+        "company": "Cedar Systems",
+        "revenue": 8000000,
+        "net_income": 1200000,
+        "currency": "USD"
+      }
+    },
+    {
+      "id": 8,
+      "filename": "insurance-claim.txt",
+      "category": "Insurance Claim",
+      "text": "INSURANCE CLAIM CLM-77\nClaimant: Northwind Labs. Policy number: POL-900. Incident date: 2026-01-15. A burst pipe damaged servers in the laboratory. Claim amount: 45000 USD. Status: under review. The insurer has not yet approved payment.",
+      "expected_fields": {
+        "claim_number": "CLM-77",
+        "policy_number": "POL-900",
+        "claim_amount": 45000,
+        "status": "under review"
+      }
+    }
+  ],
+  "queries": [
+    {
+      "id": "invoice-deadline",
+      "question": "When is Acme invoice INV-1042 due?",
+      "relevant_document_ids": [
+        1
+      ],
+      "reference_answer": "2026-02-09",
+      "required_facts": [
+        [
+          "2026-02-09",
+          "February 9, 2026",
+          "9 February 2026"
+        ]
+      ]
+    },
+    {
+      "id": "invoice-total",
+      "question": "How much does Northwind owe Acme Supplies on INV-1042?",
+      "relevant_document_ids": [
+        1
+      ],
+      "reference_answer": "12500 USD",
+      "required_facts": [
+        [
+          "12500",
+          "12,500"
+        ],
+        [
+          "USD",
+          "dollars"
+        ]
+      ]
+    },
+    {
+      "id": "keyword-id",
+      "question": "What currency is INV-1043 denominated in?",
+      "relevant_document_ids": [
+        2
+      ],
+      "reference_answer": "EUR",
+      "required_facts": [
+        [
+          "EUR",
+          "euros"
+        ]
+      ]
+    },
+    {
+      "id": "renewal",
+      "question": "How much notice is required to prevent the Acme contract from renewing?",
+      "relevant_document_ids": [
+        3
+      ],
+      "reference_answer": "60 days written notice",
+      "required_facts": [
+        [
+          "60 days",
+          "sixty days"
+        ],
+        [
+          "written"
+        ]
+      ]
+    },
+    {
+      "id": "nonrenewal",
+      "question": "Does the Globex maintenance contract renew automatically, and what is required to renew it?",
+      "relevant_document_ids": [
+        4
+      ],
+      "reference_answer": "No. A new signed agreement is required.",
+      "required_facts": [
+        [
+          "no",
+          "not"
+        ],
+        [
+          "signed agreement"
+        ]
+      ]
+    },
+    {
+      "id": "comparison",
+      "question": "Compare the critical support response times promised by Acme and Globex.",
+      "relevant_document_ids": [
+        3,
+        4
+      ],
+      "reference_answer": "Acme: 4 hours. Globex: 24 hours.",
+      "required_facts": [
+        [
+          "Acme"
+        ],
+        [
+          "4 hours",
+          "four hours"
+        ],
+        [
+          "Globex"
+        ],
+        [
+          "24 hours",
+          "twenty four hours"
+        ]
+      ]
+    },
+    {
+      "id": "candidate",
+      "question": "Give the full name of the candidate who knows Python and AWS, and their years of experience.",
+      "relevant_document_ids": [
+        5
+      ],
+      "reference_answer": "Jordan Lee has 7 years of experience.",
+      "required_facts": [
+        [
+          "Jordan Lee"
+        ],
+        [
+          "7 years",
+          "seven years"
+        ]
+      ]
+    },
+    {
+      "id": "income",
+      "question": "What was Cedar Systems net income in fiscal year 2025?",
+      "relevant_document_ids": [
+        7
+      ],
+      "reference_answer": "1200000 USD",
+      "required_facts": [
+        [
+          "1200000",
+          "1,200,000",
+          "1.2 million"
+        ],
+        [
+          "USD",
+          "dollars"
+        ]
+      ]
+    },
+    {
+      "id": "claim-status",
+      "question": "Has claim CLM-77 been approved for payment, and what is its current status?",
+      "relevant_document_ids": [
+        8
+      ],
+      "reference_answer": "No. The claim is under review.",
+      "required_facts": [
+        [
+          "no",
+          "not"
+        ],
+        [
+          "under review"
+        ]
+      ]
+    },
+    {
+      "id": "multi-invoice",
+      "question": "Which vendors invoiced Northwind Labs?",
+      "relevant_document_ids": [
+        1,
+        2
+      ],
+      "reference_answer": "Acme Supplies and Globex Services.",
+      "required_facts": [
+        [
+          "Acme Supplies"
+        ],
+        [
+          "Globex Services"
+        ]
+      ]
+    },
+    {
+      "id": "unanswerable",
+      "question": "What is Northwind Labs CEO's birthday?",
+      "relevant_document_ids": [],
+      "reference_answer": "",
+      "required_facts": [],
+      "unanswerable": true
+    }
+  ]
+}

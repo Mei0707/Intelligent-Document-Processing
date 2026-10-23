@@ -1,0 +1,352 @@
+[
+  {
+    "id": "invoice_acme_001",
+    "expected_category": "Invoice",
+    "text": "INVOICE\nInvoice Number: INV-1007\nVendor: Acme Supplies Inc.\nBill To: Northwind LLC\nIssue Date: 2026-07-01\nDue Date: 2026-07-31\nLine Items:\n- Paper and toner: $1,200.00\n- Office chairs: $3,500.00\nTotal Amount Due: $4,700.00 USD\nPlease remit payment by the due date.",
+    "expected_fields": {
+      "invoice_number": "INV-1007",
+      "vendor": "Acme Supplies Inc.",
+      "bill_to": "Northwind LLC",
+      "issue_date": "2026-07-01",
+      "due_date": "2026-07-31",
+      "total_amount": 4700,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "invoice_datacore_002",
+    "expected_category": "Invoice",
+    "text": "DataCore Hosting\nInvoice #: DC-2026-0442\nVendor: DataCore Hosting LLC\nCustomer: Greenleaf Foods Co.\nInvoice Date: 2026-05-12\nPayment Due: 2026-06-11\nCloud hosting subscription: $8,950.00\nPremium support: $1,250.00\nTotal: $10,200.00 USD\nTerms: Net 30.",
+    "expected_fields": {
+      "invoice_number": "DC-2026-0442",
+      "vendor": "DataCore Hosting LLC",
+      "bill_to": "Greenleaf Foods Co.",
+      "issue_date": "2026-05-12",
+      "due_date": "2026-06-11",
+      "total_amount": 10200,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "invoice_printworks_003",
+    "expected_category": "Invoice",
+    "text": "PrintWorks Studio\nTax Invoice PW-8831\nSold To: Harbor Legal Group\nInvoice Date: 2026-03-04\nDue Date: 2026-03-19\nVendor: PrintWorks Studio\nBrochure printing: $2,300\nBinding and delivery: $420\nAmount Due: $2,720 USD",
+    "expected_fields": {
+      "invoice_number": "PW-8831",
+      "vendor": "PrintWorks Studio",
+      "bill_to": "Harbor Legal Group",
+      "issue_date": "2026-03-04",
+      "due_date": "2026-03-19",
+      "total_amount": 2720,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "invoice_stellar_004",
+    "expected_category": "Invoice",
+    "text": "Stellar Equipment Rentals\nInvoice Number: SER-59120\nBill To: Luma Construction Partners\nIssued: 2026-08-02\nDue: 2026-08-17\nExcavator rental: $6,400\nSafety gear package: $750\nDelivery: $350\nTotal Due: $7,500.00\nCurrency: USD",
+    "expected_fields": {
+      "invoice_number": "SER-59120",
+      "vendor": "Stellar Equipment Rentals",
+      "bill_to": "Luma Construction Partners",
+      "issue_date": "2026-08-02",
+      "due_date": "2026-08-17",
+      "total_amount": 7500,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "invoice_medline_005",
+    "expected_category": "Invoice",
+    "text": "MEDLINE OFFICE HEALTH\nInvoice ID: MOH-2026-771\nVendor: Medline Office Health\nBill To: Cedar Valley Clinic\nIssue Date: 2026-04-20\nDue Date: 2026-05-20\nErgonomic assessment: $1,150.00\nFirst aid supplies: $690.00\nTotal Amount: $1,840.00 USD",
+    "expected_fields": {
+      "invoice_number": "MOH-2026-771",
+      "vendor": "Medline Office Health",
+      "bill_to": "Cedar Valley Clinic",
+      "issue_date": "2026-04-20",
+      "due_date": "2026-05-20",
+      "total_amount": 1840,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "contract_services_001",
+    "expected_category": "Contract",
+    "text": "MASTER SERVICES AGREEMENT\nThis Agreement is entered into by Atlas Analytics LLC and Brightline Retail Corp. The effective date is 2026-01-15. The agreement expires on 2027-01-14 unless renewed by mutual written agreement thirty days before expiration. The parties agree that New York law governs this agreement. Atlas will provide monthly data analytics services and Brightline will pay fees within 30 days of invoice receipt.",
+    "expected_fields": {
+      "effective_date": "2026-01-15",
+      "expiration_date": "2027-01-14",
+      "governing_law": "New York"
+    }
+  },
+  {
+    "id": "contract_nda_002",
+    "expected_category": "Contract",
+    "text": "MUTUAL NON-DISCLOSURE AGREEMENT\nParties: SilverPeak Biotech Inc. and Rowan Research Labs. This NDA is effective as of 2026-02-10 and remains in effect until 2029-02-09. Confidential information may be used only to evaluate a possible research collaboration. This agreement is governed by the laws of California.",
+    "expected_fields": {
+      "effective_date": "2026-02-10",
+      "expiration_date": "2029-02-09",
+      "governing_law": "California"
+    }
+  },
+  {
+    "id": "contract_lease_003",
+    "expected_category": "Contract",
+    "text": "COMMERCIAL LEASE AGREEMENT\nLandlord: Westbridge Properties LLC. Tenant: Noble Coffee Roasters. Premises: 1458 Market Street. Lease commencement date is 2026-09-01. Lease termination date is 2029-08-31. Tenant must pay monthly rent of $9,800. The lease shall be governed by Oregon law.",
+    "expected_fields": {
+      "effective_date": "2026-09-01",
+      "expiration_date": "2029-08-31",
+      "governing_law": "Oregon"
+    }
+  },
+  {
+    "id": "contract_vendor_004",
+    "expected_category": "Contract",
+    "text": "VENDOR SUPPLY AGREEMENT\nParties: Blue Harbor Hotels Group and FreshField Produce LLC. Effective Date: 2026-06-01. Expiration Date: 2027-05-31. FreshField will deliver produce twice weekly, and Blue Harbor will pay invoices within 20 days. Any dispute will be interpreted under Washington law.",
+    "expected_fields": {
+      "effective_date": "2026-06-01",
+      "expiration_date": "2027-05-31",
+      "governing_law": "Washington"
+    }
+  },
+  {
+    "id": "contract_license_005",
+    "expected_category": "Contract",
+    "text": "SOFTWARE LICENSE AGREEMENT\nLicensor: Northstar Systems Inc. Licensee: Arcadia Design Studio. This license begins on 2026-10-01 and ends on 2027-09-30 unless renewed for another one-year term. Licensee may use the software for internal design workflows only. Governing law: Delaware.",
+    "expected_fields": {
+      "effective_date": "2026-10-01",
+      "expiration_date": "2027-09-30",
+      "governing_law": "Delaware"
+    }
+  },
+  {
+    "id": "resume_engineer_001",
+    "expected_category": "Resume",
+    "text": "Jane Rivera\njane.rivera@example.com | 415-555-0134\nSenior Software Engineer with 8 years of experience building Python, FastAPI, React, and AWS systems.\nSkills: Python, TypeScript, React, AWS, PostgreSQL, Docker\nExperience:\nSenior Software Engineer, CloudNova, 2021-2026\nSoftware Engineer, MarketGrid, 2018-2021\nEducation: B.S. Computer Science, UC Davis, 2018",
+    "expected_fields": {
+      "name": "Jane Rivera",
+      "email": "jane.rivera@example.com",
+      "phone": "415-555-0134",
+      "years_experience": 8
+    }
+  },
+  {
+    "id": "resume_product_002",
+    "expected_category": "Resume",
+    "text": "Marcus Lee\nmarcus.lee@example.com | 212-555-0188\nProduct Manager with 6 years of experience leading B2B SaaS roadmap, customer discovery, analytics, and go-to-market launches.\nSkills: Product Strategy, SQL, Amplitude, Jira, Customer Research\nExperience: Product Manager, FlowDesk, 2022-2026; Associate Product Manager, Quantiva, 2020-2022.\nEducation: MBA, NYU Stern, 2020",
+    "expected_fields": {
+      "name": "Marcus Lee",
+      "email": "marcus.lee@example.com",
+      "phone": "212-555-0188",
+      "years_experience": 6
+    }
+  },
+  {
+    "id": "resume_data_003",
+    "expected_category": "Resume",
+    "text": "Aisha Patel\nEmail: aisha.patel@example.com\nPhone: 617-555-0199\nData Scientist with 5 years of experience in machine learning, Python, PyTorch, pandas, experimentation, and NLP.\nExperience: Data Scientist at HealthSignal AI, 2021-2026; Data Analyst at Northlake Health, 2019-2021.\nEducation: M.S. Statistics, Boston University, 2019",
+    "expected_fields": {
+      "name": "Aisha Patel",
+      "email": "aisha.patel@example.com",
+      "phone": "617-555-0199",
+      "years_experience": 5
+    }
+  },
+  {
+    "id": "resume_operations_004",
+    "expected_category": "Resume",
+    "text": "Diego Morales\nOperations Manager\nContact: diego.morales@example.com, 303-555-0155\nOperations leader with 10 years of experience in logistics, vendor management, warehouse planning, and process improvement.\nExperience: Operations Manager, Summit Gear, 2020-2026; Logistics Supervisor, TrailNorth, 2016-2020.\nEducation: B.A. Business Administration, University of Colorado, 2015",
+    "expected_fields": {
+      "name": "Diego Morales",
+      "email": "diego.morales@example.com",
+      "phone": "303-555-0155",
+      "years_experience": 10
+    }
+  },
+  {
+    "id": "resume_designer_005",
+    "expected_category": "Resume",
+    "text": "Lena Brooks\nlena.brooks@example.com | 646-555-0177\nUX Designer with 7 years of experience designing mobile apps, design systems, prototypes, and user research studies.\nSkills: Figma, Accessibility, Design Systems, User Interviews, Prototyping\nExperience: Senior UX Designer, ModeBank, 2022-2026; UX Designer, AppNest, 2019-2022.\nEducation: BFA Interaction Design, Parsons, 2018",
+    "expected_fields": {
+      "name": "Lena Brooks",
+      "email": "lena.brooks@example.com",
+      "phone": "646-555-0177",
+      "years_experience": 7
+    }
+  },
+  {
+    "id": "financial_report_001",
+    "expected_category": "Financial Report",
+    "text": "Quarterly Financial Report\nCompany: Meridian Robotics Inc.\nPeriod: Q2 2026\nRevenue was $12,400,000 compared with $10,900,000 in Q2 2025. Net income was $2,100,000. Currency: USD. Highlights include higher enterprise sales, improved gross margin, and continued investment in manufacturing automation.",
+    "expected_fields": {
+      "company": "Meridian Robotics Inc.",
+      "period": "Q2 2026",
+      "revenue": 12400000,
+      "net_income": 2100000,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "financial_report_002",
+    "expected_category": "Financial Report",
+    "text": "Annual Financial Report\nCompany: Harborline Energy Corp.\nPeriod: FY 2025\nRevenue: $88,500,000\nNet Income: $9,750,000\nCurrency: USD\nManagement noted stable utility demand, lower maintenance costs, and increased spending on grid modernization.",
+    "expected_fields": {
+      "company": "Harborline Energy Corp.",
+      "period": "FY 2025",
+      "revenue": 88500000,
+      "net_income": 9750000,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "financial_report_003",
+    "expected_category": "Financial Report",
+    "text": "Monthly Financial Summary\nCompany: Willow & Stone Apparel\nPeriod: March 2026\nRevenue totaled $3,240,000. Net income was $410,000. Currency: USD. The company reported stronger online sales and higher freight costs.",
+    "expected_fields": {
+      "company": "Willow & Stone Apparel",
+      "period": "March 2026",
+      "revenue": 3240000,
+      "net_income": 410000,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "financial_report_004",
+    "expected_category": "Financial Report",
+    "text": "Q1 2026 Financial Results\nCompany: Apex Diagnostics Ltd.\nPeriod: Q1 2026\nRevenue: $17,800,000\nNet Income: $1,350,000\nCurrency: USD\nHighlights: laboratory services revenue increased, while equipment depreciation reduced operating margin.",
+    "expected_fields": {
+      "company": "Apex Diagnostics Ltd.",
+      "period": "Q1 2026",
+      "revenue": 17800000,
+      "net_income": 1350000,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "financial_report_005",
+    "expected_category": "Financial Report",
+    "text": "Board Financial Package\nCompany: Cirrus Learning Platforms\nPeriod: Q3 2026\nRevenue reached $6,720,000 and net income was $820,000. Currency: USD. Subscription renewals exceeded plan, but sales commissions increased after a large enterprise deal.",
+    "expected_fields": {
+      "company": "Cirrus Learning Platforms",
+      "period": "Q3 2026",
+      "revenue": 6720000,
+      "net_income": 820000,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "insurance_claim_001",
+    "expected_category": "Insurance Claim",
+    "text": "Insurance Claim Form\nClaim Number: CLM-77821\nClaimant: Omar Chen\nPolicy Number: POL-44910\nIncident Date: 2026-06-18\nClaim Amount: $18,750.00\nStatus: Under Review\nDescription: Water damage occurred after a pipe burst in the claimant's kitchen, damaging flooring, cabinets, and appliances.",
+    "expected_fields": {
+      "claim_number": "CLM-77821",
+      "claimant": "Omar Chen",
+      "policy_number": "POL-44910",
+      "incident_date": "2026-06-18",
+      "claim_amount": 18750,
+      "status": "Under Review"
+    }
+  },
+  {
+    "id": "insurance_claim_002",
+    "expected_category": "Insurance Claim",
+    "text": "Auto Insurance Claim\nClaim Number: AUTO-22091\nClaimant: Elena Foster\nPolicy Number: APL-83940\nIncident Date: 2026-02-22\nClaim Amount: $6,450\nStatus: Approved\nDescription: Rear-end collision caused bumper, trunk, and sensor damage.",
+    "expected_fields": {
+      "claim_number": "AUTO-22091",
+      "claimant": "Elena Foster",
+      "policy_number": "APL-83940",
+      "incident_date": "2026-02-22",
+      "claim_amount": 6450,
+      "status": "Approved"
+    }
+  },
+  {
+    "id": "insurance_claim_003",
+    "expected_category": "Insurance Claim",
+    "text": "Property Claim Notice\nClaim Number: PR-60018\nClaimant: Bright Oak Bakery\nPolicy Number: BOB-71105\nIncident Date: 2026-01-14\nClaim Amount: $24,300.00\nStatus: Pending Adjuster Review\nDescription: Smoke damage from a neighboring unit affected inventory and front-of-house fixtures.",
+    "expected_fields": {
+      "claim_number": "PR-60018",
+      "claimant": "Bright Oak Bakery",
+      "policy_number": "BOB-71105",
+      "incident_date": "2026-01-14",
+      "claim_amount": 24300,
+      "status": "Pending Adjuster Review"
+    }
+  },
+  {
+    "id": "insurance_claim_004",
+    "expected_category": "Insurance Claim",
+    "text": "Health Reimbursement Claim\nClaim Number: HRC-91820\nClaimant: Sofia Nguyen\nPolicy Number: MED-33218\nIncident Date: 2026-04-03\nClaim Amount: $1,275.50\nStatus: Needs Documentation\nDescription: Claimant submitted reimbursement request for outpatient imaging and specialist consultation.",
+    "expected_fields": {
+      "claim_number": "HRC-91820",
+      "claimant": "Sofia Nguyen",
+      "policy_number": "MED-33218",
+      "incident_date": "2026-04-03",
+      "claim_amount": 1275.5,
+      "status": "Needs Documentation"
+    }
+  },
+  {
+    "id": "insurance_claim_005",
+    "expected_category": "Insurance Claim",
+    "text": "Travel Insurance Claim\nClaim Number: TRV-44019\nClaimant: Ethan Park\nPolicy Number: TRIP-20481\nIncident Date: 2026-07-12\nClaim Amount: $3,880\nStatus: Denied\nDescription: Flight cancellation and hotel costs were submitted, but the policy excluded the stated cancellation reason.",
+    "expected_fields": {
+      "claim_number": "TRV-44019",
+      "claimant": "Ethan Park",
+      "policy_number": "TRIP-20481",
+      "incident_date": "2026-07-12",
+      "claim_amount": 3880,
+      "status": "Denied"
+    }
+  },
+  {
+    "id": "other_memo_001",
+    "expected_category": "Other",
+    "text": "Internal Memo\nAuthor: Priya Shah\nDate: 2026-07-09\nTopic: Office Move Planning\nThe operations team is evaluating three possible office locations for the October move. Key points include commute impact, lease flexibility, network setup timing, and a temporary equipment storage plan.",
+    "expected_fields": {
+      "title": "Internal Memo",
+      "author": "Priya Shah",
+      "date": "2026-07-09"
+    }
+  },
+  {
+    "id": "other_policy_002",
+    "expected_category": "Other",
+    "text": "Remote Work Policy Update\nAuthor: Human Resources\nDate: 2026-03-15\nTopic: Hybrid Work Guidelines\nEmployees may work remotely up to three days per week with manager approval. Teams must maintain core collaboration hours from 10:00 a.m. to 2:00 p.m. local time.",
+    "expected_fields": {
+      "title": "Remote Work Policy Update",
+      "author": "Human Resources",
+      "date": "2026-03-15"
+    }
+  },
+  {
+    "id": "other_minutes_003",
+    "expected_category": "Other",
+    "text": "Meeting Minutes\nAuthor: Operations Team\nDate: 2026-05-06\nTopic: Vendor Onboarding\nThe team reviewed onboarding timelines, security questionnaire ownership, and contract routing steps. Action items include updating the vendor checklist and scheduling a finance review.",
+    "expected_fields": {
+      "title": "Meeting Minutes",
+      "author": "Operations Team",
+      "date": "2026-05-06"
+    }
+  },
+  {
+    "id": "other_report_004",
+    "expected_category": "Other",
+    "text": "Customer Feedback Digest\nAuthor: Support Operations\nDate: 2026-06-30\nTopic: Product Feedback\nCustomers praised faster report exports but requested better permission controls, clearer billing history, and additional integrations with analytics tools.",
+    "expected_fields": {
+      "title": "Customer Feedback Digest",
+      "author": "Support Operations",
+      "date": "2026-06-30"
+    }
+  },
+  {
+    "id": "other_plan_005",
+    "expected_category": "Other",
+    "text": "Project Kickoff Notes\nAuthor: Maya Thompson\nDate: 2026-08-05\nTopic: Data Warehouse Migration\nThe kickoff covered migration phases, source-system ownership, reporting freeze dates, and expected risks around historical data quality.",
+    "expected_fields": {
+      "title": "Project Kickoff Notes",
+      "author": "Maya Thompson",
+      "date": "2026-08-05"
+    }
+  }
+]

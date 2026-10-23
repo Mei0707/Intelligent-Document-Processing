@@ -1,35 +1,47 @@
-"""Chunking + embedding helpers."""
+"""Token-bounded, overlapping chunks preserving exact source text for citations."""
+from ..config import settings
+from . import llm, tokens
 
-from . import llm
 
-
-def chunk_text(text: str, chunk_size: int = 1200, overlap: int = 150) -> list[str]:
+def chunk_text(text: str, chunk_size: int | None = None, overlap: int | None = None) -> list[str]:
+    size = settings.chunk_tokens if chunk_size is None else chunk_size
+    overlap = settings.chunk_overlap_tokens if overlap is None else overlap
+    if size <= 0 or overlap < 0 or overlap >= size:
+        raise ValueError("Require chunk_size > overlap >= 0")
     text = (text or "").strip()
-    if not text:
-        return []
-    if len(text) <= chunk_size:
-        return [text]
-
-    chunks: list[str] = []
-    start = 0
-    n = len(text)
-    while start < n:
-        end = min(start + chunk_size, n)
-        # try to break on a paragraph or sentence boundary near `end`
-        if end < n:
-            window = text.rfind("\n\n", start, end)
-            if window == -1 or window < start + chunk_size // 2:
-                window = text.rfind(". ", start, end)
-            if window != -1 and window > start + chunk_size // 2:
-                end = window + 1
-        chunks.append(text[start:end].strip())
-        if end >= n:
+    chunks, start = [], 0
+    while start < len(text):
+        # Binary search characters, avoiding token-decode splits inside Unicode.
+        low, high = start + 1, min(len(text), start + size * 8)
+        end = start
+        while low <= high:
+            mid = (low + high) // 2
+            if tokens.count(text[start:mid]) <= size:
+                end, low = mid, mid + 1
+            else:
+                high = mid - 1
+        if end == start:
+            raise ValueError("Chunk budget cannot hold a single character")
+        if end < len(text):
+            boundary = max(text.rfind("\n\n", start, end), text.rfind(". ", start, end))
+            if boundary > start + (end - start) // 2:
+                end = boundary + 1
+        chunk = text[start:end].strip()
+        if chunk:
+            chunks.append(chunk)
+        if end == len(text):
             break
-        start = max(end - overlap, start + 1)
-    return [c for c in chunks if c]
+        # Find an exact source suffix within overlap token budget.
+        low, high, suffix = start + 1, end, end
+        while low <= high:
+            mid = (low + high) // 2
+            if tokens.count(text[mid:end]) <= overlap:
+                suffix, high = mid, mid - 1
+            else:
+                low = mid + 1
+        start = max(start + 1, suffix)
+    return chunks
 
 
-def embed_chunks(chunks: list[str]) -> list[list[float]]:
-    if not chunks:
-        return []
+def embed_chunks(chunks):
     return llm.embed(chunks)

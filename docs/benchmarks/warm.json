@@ -1,0 +1,1381 @@
+{
+  "mode": "live_provider",
+  "created_at": "2026-10-23T20:24:30.222308+00:00",
+  "k": 3,
+  "setup": {
+    "latency_ms": 879.8059159889817,
+    "usage": {
+      "input_tokens": 498,
+      "output_tokens": 0,
+      "cached_tokens": 0,
+      "response_cache_hits": 0,
+      "calls": 1,
+      "estimated_cost_usd": 9.960000000000001e-06,
+      "cost_known": true
+    }
+  },
+  "config": {
+    "chat_model": "gpt-4o-mini",
+    "answer_model": "",
+    "complex_model": "",
+    "embedding_model": "text-embedding-3-small",
+    "reranker": "llm",
+    "context_tokens": 6000,
+    "input_tokens": 12000,
+    "output_tokens": 1000,
+    "chunk_tokens": 400,
+    "overlap_tokens": 60,
+    "cache_ttl": 3600,
+    "model_prices": {
+      "gpt-4o-mini": {
+        "input": 0.15,
+        "cached_input": 0.075,
+        "output": 0.6
+      },
+      "text-embedding-3-small": {
+        "input": 0.02
+      }
+    },
+    "repeats": 3
+  },
+  "comparisons": [
+    {
+      "strategy": "hybrid_rerank",
+      "quality": "balanced",
+      "recall_at_k": 1.0,
+      "mrr": 1.0,
+      "answer_correctness": 0.9090909090909091,
+      "answer_token_f1": 0.3360772560772561,
+      "fact_coverage": 0.9,
+      "citation_precision": 0.9,
+      "latency_ms": {
+        "p50": 6.555458065122366,
+        "p95": 2857.829183153808
+      },
+      "retrieval_latency_ms": {
+        "p50": 5.256457952782512,
+        "p95": 1374.2480251006782
+      },
+      "errors": 0,
+      "tokens": 12809,
+      "estimated_cost_usd": 0.00232215,
+      "results": [
+        {
+          "query_id": "invoice-deadline",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1576.5431670006365,
+          "document_ids": [
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.15384615384615385,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Acme invoice INV-1042 is due on February 9, 2026. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 1,
+                "chunk_id": 1,
+                "chunk_index": 0,
+                "filename": "acme-invoice.txt",
+                "quote": "Due date: 2026-02-09",
+                "url": "/api/documents/1/chunks/1?digest=3492cfec0a38190de19d5571969ac17a71f584278246cec4fa3f92fc80890837"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 2799.2704999633133,
+          "usage": {
+            "input_tokens": 1088,
+            "output_tokens": 82,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00021097,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "invoice-total",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1366.7183751240373,
+          "document_ids": [
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.15384615384615385,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Northwind Labs owes Acme Supplies 12,500 USD on INV-1042. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 1,
+                "chunk_id": 1,
+                "chunk_index": 0,
+                "filename": "acme-invoice.txt",
+                "quote": "Total amount: 12500 USD.",
+                "url": "/api/documents/1/chunks/1?digest=3492cfec0a38190de19d5571969ac17a71f584278246cec4fa3f92fc80890837"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 2431.770000141114,
+          "usage": {
+            "input_tokens": 1100,
+            "output_tokens": 80,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00021105,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "keyword-id",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1287.396291969344,
+          "document_ids": [
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.0,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "INV-1043 is denominated in euros. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 2,
+                "chunk_id": 2,
+                "chunk_index": 0,
+                "filename": "globex-invoice.txt",
+                "quote": "Total amount: 3200 EUR.",
+                "url": "/api/documents/2/chunks/2?digest=7af54c872d3106d7630e218d58c8f1c0bcff851a15a90e322b1952d0ff27304b"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 2409.1069591231644,
+          "usage": {
+            "input_tokens": 1084,
+            "output_tokens": 72,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00020437,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "renewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1244.2918750457466,
+          "document_ids": [
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.38095238095238093,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "To prevent the Acme contract from renewing, either party must give 60 days written notice before expiration. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 3,
+                "chunk_id": 3,
+                "chunk_index": 0,
+                "filename": "northwind-contract.txt",
+                "quote": "Renewal terms: automatic annual renewal unless either party gives 60 days written notice before expiration.",
+                "url": "/api/documents/3/chunks/3?digest=990672ed28171dbe0c7607499618d7d7767f69aefb0e327597cb9486fb411e81"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 2425.508250016719,
+          "usage": {
+            "input_tokens": 1103,
+            "output_tokens": 94,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00021990000000000003,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "nonrenewal",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1104.0878749918193,
+          "document_ids": [
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 0.0,
+          "answer_token_f1": 0.0,
+          "fact_coverage": 0.0,
+          "citation_precision": 0,
+          "answer": {
+            "answer": "I couldn't find enough evidence in the documents to answer this question.",
+            "citations": [],
+            "abstained": true
+          },
+          "latency_ms": 2347.7623329963535,
+          "usage": {
+            "input_tokens": 1106,
+            "output_tokens": 85,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00021468999999999997,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "comparison",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1250.3695408813655,
+          "document_ids": [
+            3,
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.48,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Acme must provide support within 4 hours for critical incidents. [1]\n\nGlobex's critical support response time is 24 hours. [2]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 3,
+                "chunk_id": 3,
+                "chunk_index": 0,
+                "filename": "northwind-contract.txt",
+                "quote": "Acme must provide support within 4 hours for critical incidents.",
+                "url": "/api/documents/3/chunks/3?digest=990672ed28171dbe0c7607499618d7d7767f69aefb0e327597cb9486fb411e81"
+              },
+              {
+                "label": 2,
+                "document_id": 4,
+                "chunk_id": 4,
+                "chunk_index": 0,
+                "filename": "globex-contract.txt",
+                "quote": "Critical support response time is 24 hours.",
+                "url": "/api/documents/4/chunks/4?digest=65193ae4e1939b77c17205d5f5a0f5cf007f451c2a294949d5760992e392d435"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 2945.6672079395503,
+          "usage": {
+            "input_tokens": 1194,
+            "output_tokens": 117,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00024748,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "candidate",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1385.5425000656396,
+          "document_ids": [
+            5
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.46153846153846156,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "The candidate who knows Python and AWS is Jordan Lee, and they have 7 years of software engineering experience. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 5,
+                "chunk_id": 5,
+                "chunk_index": 0,
+                "filename": "jordan-resume.txt",
+                "quote": "Jordan Lee\nEmail: jordan@example.test\nSkills: Python, AWS, PostgreSQL. Jordan has 7 years of software engineering experience.",
+                "url": "/api/documents/5/chunks/5?digest=646e6b11baed91d77db3c1d4be3347d19a1984ad2c171a4e3c59ade83868b16c"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 2962.846542010084,
+          "usage": {
+            "input_tokens": 1096,
+            "output_tokens": 104,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00022433000000000002,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "income",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1068.182790884748,
+          "document_ids": [
+            7
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.13333333333333333,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Cedar Systems' net income in fiscal year 2025 was 1,200,000 USD. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 7,
+                "chunk_id": 7,
+                "chunk_index": 0,
+                "filename": "cedar-financial-report.txt",
+                "quote": "Net income: 1200000 USD.",
+                "url": "/api/documents/7/chunks/7?digest=1f5c92f505bdabfa036c153b36ee1f2112c9a879478f79bd628a5e0fdcf2291f"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 2278.5604579839855,
+          "usage": {
+            "input_tokens": 1083,
+            "output_tokens": 84,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00021115999999999998,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "claim-status",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1270.3038749750704,
+          "document_ids": [
+            8
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.4,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Claim CLM-77 has not been approved for payment and is currently under review. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 8,
+                "chunk_id": 8,
+                "chunk_index": 0,
+                "filename": "insurance-claim.txt",
+                "quote": "Status: under review. The insurer has not yet approved payment.",
+                "url": "/api/documents/8/chunks/8?digest=b44864775e61656e0b2af5e9ca0c84106b900fa634242f394f201ad873bf7a38"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 2600.950166815892,
+          "usage": {
+            "input_tokens": 1103,
+            "output_tokens": 84,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00021350999999999998,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "multi-invoice",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1111.350208055228,
+          "document_ids": [
+            1,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.5333333333333333,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Acme Supplies invoiced Northwind Labs. [1]\n\nGlobex Services invoiced Northwind Labs. [2]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 1,
+                "chunk_id": 1,
+                "chunk_index": 0,
+                "filename": "acme-invoice.txt",
+                "quote": "Vendor: Acme Supplies",
+                "url": "/api/documents/1/chunks/1?digest=3492cfec0a38190de19d5571969ac17a71f584278246cec4fa3f92fc80890837"
+              },
+              {
+                "label": 2,
+                "document_id": 2,
+                "chunk_id": 2,
+                "chunk_index": 0,
+                "filename": "globex-invoice.txt",
+                "quote": "Vendor: Globex Services",
+                "url": "/api/documents/2/chunks/2?digest=7af54c872d3106d7630e218d58c8f1c0bcff851a15a90e322b1952d0ff27304b"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 2318.7216671649367,
+          "usage": {
+            "input_tokens": 1167,
+            "output_tokens": 97,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 3,
+            "estimated_cost_usd": 0.00023220999999999997,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "unanswerable",
+          "repeat": 0,
+          "error": null,
+          "retrieval_latency_ms": 1186.678416095674,
+          "document_ids": [],
+          "recall_at_k": null,
+          "mrr": null,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 1.0,
+          "fact_coverage": null,
+          "citation_precision": null,
+          "answer": {
+            "answer": "I couldn't find enough evidence in the documents to answer this question.",
+            "citations": [],
+            "abstained": true
+          },
+          "latency_ms": 1186.7442082148045,
+          "usage": {
+            "input_tokens": 751,
+            "output_tokens": 35,
+            "cached_tokens": 0,
+            "response_cache_hits": 0,
+            "calls": 2,
+            "estimated_cost_usd": 0.00013248,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "invoice-deadline",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 7.155209081247449,
+          "document_ids": [
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.15384615384615385,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Acme invoice INV-1042 is due on February 9, 2026. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 1,
+                "chunk_id": 1,
+                "chunk_index": 0,
+                "filename": "acme-invoice.txt",
+                "quote": "Due date: 2026-02-09",
+                "url": "/api/documents/1/chunks/1?digest=3492cfec0a38190de19d5571969ac17a71f584278246cec4fa3f92fc80890837"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 8.85858410038054,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "invoice-total",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 5.039582960307598,
+          "document_ids": [
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.15384615384615385,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Northwind Labs owes Acme Supplies 12,500 USD on INV-1042. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 1,
+                "chunk_id": 1,
+                "chunk_index": 0,
+                "filename": "acme-invoice.txt",
+                "quote": "Total amount: 12500 USD.",
+                "url": "/api/documents/1/chunks/1?digest=3492cfec0a38190de19d5571969ac17a71f584278246cec4fa3f92fc80890837"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 6.433374946936965,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "keyword-id",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 5.266833119094372,
+          "document_ids": [
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.0,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "INV-1043 is denominated in euros. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 2,
+                "chunk_id": 2,
+                "chunk_index": 0,
+                "filename": "globex-invoice.txt",
+                "quote": "Total amount: 3200 EUR.",
+                "url": "/api/documents/2/chunks/2?digest=7af54c872d3106d7630e218d58c8f1c0bcff851a15a90e322b1952d0ff27304b"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 6.912166019901633,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "renewal",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 6.4479580614715815,
+          "document_ids": [
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.38095238095238093,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "To prevent the Acme contract from renewing, either party must give 60 days written notice before expiration. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 3,
+                "chunk_id": 3,
+                "chunk_index": 0,
+                "filename": "northwind-contract.txt",
+                "quote": "Renewal terms: automatic annual renewal unless either party gives 60 days written notice before expiration.",
+                "url": "/api/documents/3/chunks/3?digest=990672ed28171dbe0c7607499618d7d7767f69aefb0e327597cb9486fb411e81"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 8.170166052877903,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "nonrenewal",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 6.150791887193918,
+          "document_ids": [
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 0.0,
+          "answer_token_f1": 0.0,
+          "fact_coverage": 0.0,
+          "citation_precision": 0,
+          "answer": {
+            "answer": "I couldn't find enough evidence in the documents to answer this question.",
+            "citations": [],
+            "abstained": true
+          },
+          "latency_ms": 7.555666845291853,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "comparison",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 5.515417084097862,
+          "document_ids": [
+            3,
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.48,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Acme must provide support within 4 hours for critical incidents. [1]\n\nGlobex's critical support response time is 24 hours. [2]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 3,
+                "chunk_id": 3,
+                "chunk_index": 0,
+                "filename": "northwind-contract.txt",
+                "quote": "Acme must provide support within 4 hours for critical incidents.",
+                "url": "/api/documents/3/chunks/3?digest=990672ed28171dbe0c7607499618d7d7767f69aefb0e327597cb9486fb411e81"
+              },
+              {
+                "label": 2,
+                "document_id": 4,
+                "chunk_id": 4,
+                "chunk_index": 0,
+                "filename": "globex-contract.txt",
+                "quote": "Critical support response time is 24 hours.",
+                "url": "/api/documents/4/chunks/4?digest=65193ae4e1939b77c17205d5f5a0f5cf007f451c2a294949d5760992e392d435"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 7.51575012691319,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "candidate",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 5.256457952782512,
+          "document_ids": [
+            5
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.46153846153846156,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "The candidate who knows Python and AWS is Jordan Lee, and they have 7 years of software engineering experience. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 5,
+                "chunk_id": 5,
+                "chunk_index": 0,
+                "filename": "jordan-resume.txt",
+                "quote": "Jordan Lee\nEmail: jordan@example.test\nSkills: Python, AWS, PostgreSQL. Jordan has 7 years of software engineering experience.",
+                "url": "/api/documents/5/chunks/5?digest=646e6b11baed91d77db3c1d4be3347d19a1984ad2c171a4e3c59ade83868b16c"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 6.460666889324784,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "income",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 3.4608340356498957,
+          "document_ids": [
+            7
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.13333333333333333,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Cedar Systems' net income in fiscal year 2025 was 1,200,000 USD. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 7,
+                "chunk_id": 7,
+                "chunk_index": 0,
+                "filename": "cedar-financial-report.txt",
+                "quote": "Net income: 1200000 USD.",
+                "url": "/api/documents/7/chunks/7?digest=1f5c92f505bdabfa036c153b36ee1f2112c9a879478f79bd628a5e0fdcf2291f"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 4.564791917800903,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "claim-status",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 3.4802500158548355,
+          "document_ids": [
+            8
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.4,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Claim CLM-77 has not been approved for payment and is currently under review. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 8,
+                "chunk_id": 8,
+                "chunk_index": 0,
+                "filename": "insurance-claim.txt",
+                "quote": "Status: under review. The insurer has not yet approved payment.",
+                "url": "/api/documents/8/chunks/8?digest=b44864775e61656e0b2af5e9ca0c84106b900fa634242f394f201ad873bf7a38"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 4.801207920536399,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "multi-invoice",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 4.094041883945465,
+          "document_ids": [
+            1,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.5333333333333333,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Acme Supplies invoiced Northwind Labs. [1]\n\nGlobex Services invoiced Northwind Labs. [2]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 1,
+                "chunk_id": 1,
+                "chunk_index": 0,
+                "filename": "acme-invoice.txt",
+                "quote": "Vendor: Acme Supplies",
+                "url": "/api/documents/1/chunks/1?digest=3492cfec0a38190de19d5571969ac17a71f584278246cec4fa3f92fc80890837"
+              },
+              {
+                "label": 2,
+                "document_id": 2,
+                "chunk_id": 2,
+                "chunk_index": 0,
+                "filename": "globex-invoice.txt",
+                "quote": "Vendor: Globex Services",
+                "url": "/api/documents/2/chunks/2?digest=7af54c872d3106d7630e218d58c8f1c0bcff851a15a90e322b1952d0ff27304b"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 6.35437504388392,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "unanswerable",
+          "repeat": 1,
+          "error": null,
+          "retrieval_latency_ms": 3.5994581412523985,
+          "document_ids": [],
+          "recall_at_k": null,
+          "mrr": null,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 1.0,
+          "fact_coverage": null,
+          "citation_precision": null,
+          "answer": {
+            "answer": "I couldn't find enough evidence in the documents to answer this question.",
+            "citations": [],
+            "abstained": true
+          },
+          "latency_ms": 3.6169160157442093,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 2,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "invoice-deadline",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 3.476083977147937,
+          "document_ids": [
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.15384615384615385,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Acme invoice INV-1042 is due on February 9, 2026. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 1,
+                "chunk_id": 1,
+                "chunk_index": 0,
+                "filename": "acme-invoice.txt",
+                "quote": "Due date: 2026-02-09",
+                "url": "/api/documents/1/chunks/1?digest=3492cfec0a38190de19d5571969ac17a71f584278246cec4fa3f92fc80890837"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 4.472959088161588,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "invoice-total",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 3.8506248965859413,
+          "document_ids": [
+            1
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.15384615384615385,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Northwind Labs owes Acme Supplies 12,500 USD on INV-1042. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 1,
+                "chunk_id": 1,
+                "chunk_index": 0,
+                "filename": "acme-invoice.txt",
+                "quote": "Total amount: 12500 USD.",
+                "url": "/api/documents/1/chunks/1?digest=3492cfec0a38190de19d5571969ac17a71f584278246cec4fa3f92fc80890837"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 4.773665918037295,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "keyword-id",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 3.092791885137558,
+          "document_ids": [
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.0,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "INV-1043 is denominated in euros. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 2,
+                "chunk_id": 2,
+                "chunk_index": 0,
+                "filename": "globex-invoice.txt",
+                "quote": "Total amount: 3200 EUR.",
+                "url": "/api/documents/2/chunks/2?digest=7af54c872d3106d7630e218d58c8f1c0bcff851a15a90e322b1952d0ff27304b"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 4.14504180662334,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "renewal",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 3.2211251091212034,
+          "document_ids": [
+            3
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.38095238095238093,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "To prevent the Acme contract from renewing, either party must give 60 days written notice before expiration. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 3,
+                "chunk_id": 3,
+                "chunk_index": 0,
+                "filename": "northwind-contract.txt",
+                "quote": "Renewal terms: automatic annual renewal unless either party gives 60 days written notice before expiration.",
+                "url": "/api/documents/3/chunks/3?digest=990672ed28171dbe0c7607499618d7d7767f69aefb0e327597cb9486fb411e81"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 4.259916953742504,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "nonrenewal",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 5.015625152736902,
+          "document_ids": [
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 0.0,
+          "answer_token_f1": 0.0,
+          "fact_coverage": 0.0,
+          "citation_precision": 0,
+          "answer": {
+            "answer": "I couldn't find enough evidence in the documents to answer this question.",
+            "citations": [],
+            "abstained": true
+          },
+          "latency_ms": 6.112625123932958,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "comparison",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 5.068958038464189,
+          "document_ids": [
+            3,
+            4
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.48,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Acme must provide support within 4 hours for critical incidents. [1]\n\nGlobex's critical support response time is 24 hours. [2]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 3,
+                "chunk_id": 3,
+                "chunk_index": 0,
+                "filename": "northwind-contract.txt",
+                "quote": "Acme must provide support within 4 hours for critical incidents.",
+                "url": "/api/documents/3/chunks/3?digest=990672ed28171dbe0c7607499618d7d7767f69aefb0e327597cb9486fb411e81"
+              },
+              {
+                "label": 2,
+                "document_id": 4,
+                "chunk_id": 4,
+                "chunk_index": 0,
+                "filename": "globex-contract.txt",
+                "quote": "Critical support response time is 24 hours.",
+                "url": "/api/documents/4/chunks/4?digest=65193ae4e1939b77c17205d5f5a0f5cf007f451c2a294949d5760992e392d435"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 6.555458065122366,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "candidate",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 3.593832952901721,
+          "document_ids": [
+            5
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.46153846153846156,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "The candidate who knows Python and AWS is Jordan Lee, and they have 7 years of software engineering experience. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 5,
+                "chunk_id": 5,
+                "chunk_index": 0,
+                "filename": "jordan-resume.txt",
+                "quote": "Jordan Lee\nEmail: jordan@example.test\nSkills: Python, AWS, PostgreSQL. Jordan has 7 years of software engineering experience.",
+                "url": "/api/documents/5/chunks/5?digest=646e6b11baed91d77db3c1d4be3347d19a1984ad2c171a4e3c59ade83868b16c"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 4.620707826688886,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "income",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 3.3358330838382244,
+          "document_ids": [
+            7
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.13333333333333333,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Cedar Systems' net income in fiscal year 2025 was 1,200,000 USD. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 7,
+                "chunk_id": 7,
+                "chunk_index": 0,
+                "filename": "cedar-financial-report.txt",
+                "quote": "Net income: 1200000 USD.",
+                "url": "/api/documents/7/chunks/7?digest=1f5c92f505bdabfa036c153b36ee1f2112c9a879478f79bd628a5e0fdcf2291f"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 4.359791986644268,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "claim-status",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 4.985458916053176,
+          "document_ids": [
+            8
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.4,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Claim CLM-77 has not been approved for payment and is currently under review. [1]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 8,
+                "chunk_id": 8,
+                "chunk_index": 0,
+                "filename": "insurance-claim.txt",
+                "quote": "Status: under review. The insurer has not yet approved payment.",
+                "url": "/api/documents/8/chunks/8?digest=b44864775e61656e0b2af5e9ca0c84106b900fa634242f394f201ad873bf7a38"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 6.436167052015662,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "multi-invoice",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 3.2930830493569374,
+          "document_ids": [
+            1,
+            2
+          ],
+          "recall_at_k": 1.0,
+          "mrr": 1.0,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 0.5333333333333333,
+          "fact_coverage": 1.0,
+          "citation_precision": 1.0,
+          "answer": {
+            "answer": "Acme Supplies invoiced Northwind Labs. [1]\n\nGlobex Services invoiced Northwind Labs. [2]",
+            "citations": [
+              {
+                "label": 1,
+                "document_id": 1,
+                "chunk_id": 1,
+                "chunk_index": 0,
+                "filename": "acme-invoice.txt",
+                "quote": "Vendor: Acme Supplies",
+                "url": "/api/documents/1/chunks/1?digest=3492cfec0a38190de19d5571969ac17a71f584278246cec4fa3f92fc80890837"
+              },
+              {
+                "label": 2,
+                "document_id": 2,
+                "chunk_id": 2,
+                "chunk_index": 0,
+                "filename": "globex-invoice.txt",
+                "quote": "Vendor: Globex Services",
+                "url": "/api/documents/2/chunks/2?digest=7af54c872d3106d7630e218d58c8f1c0bcff851a15a90e322b1952d0ff27304b"
+              }
+            ],
+            "abstained": false
+          },
+          "latency_ms": 4.479458089917898,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 3,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        },
+        {
+          "query_id": "unanswerable",
+          "repeat": 2,
+          "error": null,
+          "retrieval_latency_ms": 3.6198748275637627,
+          "document_ids": [],
+          "recall_at_k": null,
+          "mrr": null,
+          "answer_correctness": 1.0,
+          "answer_token_f1": 1.0,
+          "fact_coverage": null,
+          "citation_precision": null,
+          "answer": {
+            "answer": "I couldn't find enough evidence in the documents to answer this question.",
+            "citations": [],
+            "abstained": true
+          },
+          "latency_ms": 3.64670786075294,
+          "usage": {
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "cached_tokens": 0,
+            "response_cache_hits": 2,
+            "calls": 0,
+            "estimated_cost_usd": 0.0,
+            "cost_known": true
+          }
+        }
+      ]
+    }
+  ],
+  "dataset_sha256": "6557f10c9d078f8a60dbc28f09a7c1df1151b8a16a9adfc4071bb23c896f8ed6"
+}

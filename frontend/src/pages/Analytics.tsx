@@ -1,10 +1,10 @@
+import Grid from "@mui/material/Grid2";
 import { useEffect, useState } from "react";
 import {
   Box,
   Card,
   CardContent,
   CircularProgress,
-  Grid,
   Paper,
   Stack,
   Table,

@@ -1,92 +1,56 @@
-"""End-to-end processing pipeline for a single uploaded document.
-
-Runs as a background task. Updates the Document row through each stage so
-the UI can show progress. Any per-stage failure marks the document failed
-but leaves whatever earlier stages produced intact.
-"""
-
-import logging
+"""Compute document outputs outside transactions; atomically publish under a lease."""
 from pathlib import Path
-
-from sqlalchemy.orm import Session
-
+from datetime import datetime
+from sqlalchemy import update, delete
 from . import models
 from .db import SessionLocal
-from .services import ocr, classifier, extractor, summarizer, embeddings
-from .services.vector_store import index
+from .config import settings
+from .jobs import LeaseLost, PermanentJobError, owned, renew
+from .monitoring import pipeline_stage, record_document_chunks, record_document_processing
+from .services import ocr, classifier, extractor, summarizer, embeddings, tokens
 
-log = logging.getLogger("idp.pipeline")
 
-
-def process_document(document_id: int) -> None:
-    """Run the full pipeline. Opens its own DB session so it's safe to call
-    from FastAPI's BackgroundTasks (which runs after the request session closes)."""
-    db: Session = SessionLocal()
-    try:
+def process_document(document_id: int, job_id: str, lease_token: str) -> None:
+    with SessionLocal() as db:
         doc = db.get(models.Document, document_id)
         if doc is None:
-            log.warning("process_document: id=%s not found", document_id)
-            return
+            raise FileNotFoundError("Document no longer exists")
+        path, mime_type = doc.storage_path, doc.mime_type
 
-        doc.status = "processing"
-        doc.error = None
+    def stage(name, function, *args):
+        renew(job_id, lease_token, name)
+        with pipeline_stage(name):
+            return function(*args)
+
+    text = stage("ocr", ocr.extract_text, Path(path), mime_type)
+    if not text or not text.strip():
+        raise PermanentJobError("Could not extract any text from the file")
+    token_count = tokens.count(text)
+    if token_count > settings.max_document_tokens:
+        raise PermanentJobError("Document exceeds MAX_DOCUMENT_TOKENS; split it into smaller files")
+    cls = stage("classification", classifier.classify, text)
+    fields = stage("field_extraction", extractor.extract_fields, text, cls["category"])
+    summary = stage("summary", summarizer.summarize, text, cls["category"])
+    chunks = stage("chunking", embeddings.chunk_text, text)
+    vectors = stage("embedding", embeddings.embed_chunks, chunks)
+    if len(vectors) != len(chunks):
+        raise ValueError("Chunk and vector counts differ")
+    # The conditional UPDATE locks the job before replacing chunks/document output.
+    # A worker whose lease expired can never overwrite a newer worker's result.
+    with SessionLocal() as db:
+        changed = db.execute(update(models.ProcessingJob).where(owned(job_id, lease_token)).values(
+            status="succeeded", stage="done", lease_token=None, lease_until=None, updated_at=datetime.utcnow(),
+        )).rowcount
+        if not changed:
+            raise LeaseLost("Lease expired before commit")
+        db.execute(delete(models.Chunk).where(models.Chunk.document_id == document_id))
+        for i, (chunk, vector) in enumerate(zip(chunks, vectors)):
+            db.add(models.Chunk(document_id=document_id, chunk_index=i, text=chunk, embedding=vector))
+        doc = db.get(models.Document, document_id)
+        doc.raw_text, doc.token_count = text, token_count
+        doc.category, doc.category_confidence = cls["category"], cls["confidence"]
+        doc.extracted_fields, doc.summary = fields, summary
+        doc.status, doc.error = "done", None
         db.commit()
-
-        try:
-            # 1. OCR / text extraction
-            text = ocr.extract_text(Path(doc.storage_path), doc.mime_type)
-            doc.raw_text = text
-            doc.token_count = len(text.split()) if text else 0
-            db.commit()
-
-            if not text or not text.strip():
-                doc.status = "failed"
-                doc.error = "Could not extract any text from the file."
-                db.commit()
-                return
-
-            # 2. Classification
-            cls = classifier.classify(text)
-            doc.category = cls["category"]
-            doc.category_confidence = cls["confidence"]
-            db.commit()
-
-            # 3. Field extraction
-            doc.extracted_fields = extractor.extract_fields(text, doc.category)
-            db.commit()
-
-            # 4. Summary
-            doc.summary = summarizer.summarize(text, doc.category)
-            db.commit()
-
-            # 5. Chunk + embed + index
-            chunks = embeddings.chunk_text(text)
-            if chunks:
-                vectors = embeddings.embed_chunks(chunks)
-                # persist chunks
-                rows: list[tuple[int, int, str, list[float]]] = []
-                for i, (chunk_text, vec) in enumerate(zip(chunks, vectors)):
-                    row = models.Chunk(
-                        document_id=doc.id,
-                        chunk_index=i,
-                        text=chunk_text,
-                        embedding=vec,
-                    )
-                    db.add(row)
-                db.flush()
-                # collect ids for the in-memory index
-                db.refresh(doc)
-                for c in doc.chunks:
-                    rows.append((c.id, doc.id, c.text, list(c.embedding)))
-                db.commit()
-                index.add(rows)
-
-            doc.status = "done"
-            db.commit()
-        except Exception as e:  # any per-stage failure
-            log.exception("Pipeline failed for document %s", document_id)
-            doc.status = "failed"
-            doc.error = f"{type(e).__name__}: {e}"[:500]
-            db.commit()
-    finally:
-        db.close()
+    record_document_chunks(cls["category"], len(chunks))
+    record_document_processing("success", cls["category"])

@@ -1,0 +1,31 @@
+groups:
+  - name: idp
+    rules:
+      - alert: IDPWorkerUnavailable
+        expr: up{job="idp-worker"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: Document worker is unavailable
+      - alert: IDPDeadLetterJobs
+        expr: max(idp_queue_depth{state="dead"}) > 0
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: Failed document jobs require replay or investigation
+      - alert: IDPQueueBacklog
+        expr: max(idp_queue_depth{state="queued"}) > 100
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: Document queue is growing
+      - alert: IDPInferenceErrors
+        expr: sum(rate(idp_llm_calls_total{outcome="error"}[5m])) / clamp_min(sum(rate(idp_llm_calls_total[5m])), 0.001) > 0.1
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: More than ten percent of inference requests are failing

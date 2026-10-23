@@ -1,3 +1,4 @@
+import Grid from "@mui/material/Grid2";
 import { useEffect, useState } from "react";
 import {
   Alert,
@@ -6,7 +7,6 @@ import {
   Chip,
   CircularProgress,
   Divider,
-  Grid,
   Paper,
   Stack,
   Typography,
@@ -19,6 +19,8 @@ import { Link as RouterLink, useNavigate, useParams } from "react-router-dom";
 import {
   deleteDocument,
   getDocument,
+  getJob,
+  type ProcessingJob,
   reprocessDocument,
   type DocumentDetail as Doc,
 } from "../api";
@@ -65,6 +67,7 @@ function FieldList({ fields }: { fields: Record<string, unknown> }) {
 export default function DocumentDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [job, setJob] = useState<ProcessingJob | null>(null);
   const [doc, setDoc] = useState<Doc | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -74,6 +77,7 @@ export default function DocumentDetail() {
     try {
       const d = await getDocument(Number(id));
       setDoc(d);
+      if (d.job_id) setJob(await getJob(d.job_id));
       setError(null);
     } catch (e: any) {
       setError(e?.response?.data?.detail ?? "Failed to load document");
@@ -123,6 +127,7 @@ export default function DocumentDetail() {
         <Button
           color="error"
           startIcon={<DeleteOutlineIcon />}
+          disabled={doc.status === "pending" || doc.status === "processing"}
           onClick={async () => {
             if (!confirm("Delete this document?")) return;
             await deleteDocument(doc.id);
@@ -133,6 +138,11 @@ export default function DocumentDetail() {
         </Button>
       </Box>
 
+      {job && <Alert severity={job.status === "dead" ? "error" : "info"}>
+        Processing: {job.status} · {job.stage.replaceAll("_", " ")} · attempts: {job.attempts}
+        {job.status === "retrying" && " · automatically retrying"}
+        {job.status === "dead" && " · use Reprocess to replay this job"}
+      </Alert>}
       <Paper variant="outlined" sx={{ p: 3 }}>
         <Stack direction="row" spacing={2} alignItems="center" sx={{ mb: 1 }}>
           <Typography variant="h5" sx={{ flex: 1, wordBreak: "break-word" }}>

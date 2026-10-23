@@ -11,6 +11,7 @@ import numpy as np
 from sqlalchemy.orm import Session
 
 from .. import models
+from ..monitoring import VECTOR_INDEX_ENTRIES
 
 
 @dataclass
@@ -30,8 +31,10 @@ class VectorIndex:
     def _rebuild_matrix(self) -> None:
         if not self._entries:
             self._matrix = None
+            VECTOR_INDEX_ENTRIES.set(0)
             return
         self._matrix = np.stack([e.vector for e in self._entries])
+        VECTOR_INDEX_ENTRIES.set(len(self._entries))
 
     @staticmethod
     def _normalize(v: list[float] | np.ndarray) -> np.ndarray:

@@ -1,0 +1,79 @@
+[
+  {
+    "id": "invoice_acme_001",
+    "expected_category": "Invoice",
+    "text": "INVOICE\nInvoice Number: INV-1007\nVendor: Acme Supplies Inc.\nBill To: Northwind LLC\nIssue Date: 2026-07-01\nDue Date: 2026-07-31\nLine Items:\n- Paper and toner: $1,200.00\n- Office chairs: $3,500.00\nTotal Amount Due: $4,700.00 USD\nPlease remit payment by the due date.",
+    "expected_fields": {
+      "invoice_number": "INV-1007",
+      "vendor": "Acme Supplies Inc.",
+      "bill_to": "Northwind LLC",
+      "issue_date": "2026-07-01",
+      "due_date": "2026-07-31",
+      "total_amount": 4700,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "contract_services_001",
+    "expected_category": "Contract",
+    "text": "MASTER SERVICES AGREEMENT\nThis Agreement is entered into by Atlas Analytics LLC and Brightline Retail Corp. The effective date is 2026-01-15. The agreement expires on 2027-01-14 unless renewed by mutual written agreement thirty days before expiration. The parties agree that New York law governs this agreement. Atlas will provide monthly data analytics services and Brightline will pay fees within 30 days of invoice receipt.",
+    "expected_fields": {
+      "parties": ["Atlas Analytics LLC", "Brightline Retail Corp"],
+      "effective_date": "2026-01-15",
+      "expiration_date": "2027-01-14",
+      "governing_law": "New York",
+      "key_obligations": [
+        "Atlas will provide monthly data analytics services",
+        "Brightline will pay fees within 30 days of invoice receipt"
+      ]
+    }
+  },
+  {
+    "id": "resume_engineer_001",
+    "expected_category": "Resume",
+    "text": "Jane Rivera\njane.rivera@example.com | 415-555-0134\nSenior Software Engineer with 8 years of experience building Python, FastAPI, React, and AWS systems.\nSkills: Python, TypeScript, React, AWS, PostgreSQL, Docker\nExperience:\nSenior Software Engineer, CloudNova, 2021-2026\nSoftware Engineer, MarketGrid, 2018-2021\nEducation: B.S. Computer Science, UC Davis, 2018",
+    "expected_fields": {
+      "name": "Jane Rivera",
+      "email": "jane.rivera@example.com",
+      "phone": "415-555-0134",
+      "skills": ["Python", "TypeScript", "React", "AWS", "PostgreSQL", "Docker"],
+      "years_experience": 8
+    }
+  },
+  {
+    "id": "financial_report_001",
+    "expected_category": "Financial Report",
+    "text": "Quarterly Financial Report\nCompany: Meridian Robotics Inc.\nPeriod: Q2 2026\nRevenue was $12,400,000 compared with $10,900,000 in Q2 2025. Net income was $2,100,000. Currency: USD. Highlights include higher enterprise sales, improved gross margin, and continued investment in manufacturing automation.",
+    "expected_fields": {
+      "company": "Meridian Robotics Inc.",
+      "period": "Q2 2026",
+      "revenue": 12400000,
+      "net_income": 2100000,
+      "currency": "USD"
+    }
+  },
+  {
+    "id": "insurance_claim_001",
+    "expected_category": "Insurance Claim",
+    "text": "Insurance Claim Form\nClaim Number: CLM-77821\nClaimant: Omar Chen\nPolicy Number: POL-44910\nIncident Date: 2026-06-18\nClaim Amount: $18,750.00\nStatus: Under Review\nDescription: Water damage occurred after a pipe burst in the claimant's kitchen, damaging flooring, cabinets, and appliances.",
+    "expected_fields": {
+      "claim_number": "CLM-77821",
+      "claimant": "Omar Chen",
+      "policy_number": "POL-44910",
+      "incident_date": "2026-06-18",
+      "claim_amount": 18750,
+      "status": "Under Review"
+    }
+  },
+  {
+    "id": "other_memo_001",
+    "expected_category": "Other",
+    "text": "Internal Memo\nAuthor: Priya Shah\nDate: 2026-07-09\nTopic: Office Move Planning\nThe operations team is evaluating three possible office locations for the October move. Key points include commute impact, lease flexibility, network setup timing, and a temporary equipment storage plan.",
+    "expected_fields": {
+      "title": "Internal Memo",
+      "author": "Priya Shah",
+      "date": "2026-07-09",
+      "topics": ["Office Move Planning"]
+    }
+  }
+]

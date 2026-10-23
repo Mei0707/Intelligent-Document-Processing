@@ -1,6 +1,6 @@
 from datetime import datetime
-from typing import Any
-from pydantic import BaseModel, ConfigDict
+from typing import Any, Literal
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class DocumentSummary(BaseModel):
@@ -18,6 +18,7 @@ class DocumentSummary(BaseModel):
 
 
 class DocumentDetail(DocumentSummary):
+    job_id: str | None = None
     extracted_fields: dict[str, Any] | None = None
     raw_text: str | None = None
     token_count: int | None = None
@@ -35,11 +36,54 @@ class SearchHit(BaseModel):
     category: str | None
     snippet: str
     score: float
+    chunk_id: int
+    chunk_index: int
 
 
 class SearchResponse(BaseModel):
     query: str
     hits: list[SearchHit]
+    strategy: str
+
+
+class AnswerRequest(BaseModel):
+    question: str = Field(min_length=1, max_length=2000)
+    strategy: Literal["bm25", "vector", "hybrid", "hybrid_rerank"] = "hybrid"
+    top_k: int = Field(5, ge=1, le=20)
+    quality: Literal["balanced", "high"] = "balanced"
+
+
+class Citation(BaseModel):
+    label: int
+    document_id: int
+    chunk_id: int
+    chunk_index: int
+    filename: str
+    quote: str
+    url: str
+
+
+class AnswerResponse(BaseModel):
+    question: str
+    answer: str
+    citations: list[Citation]
+    abstained: bool
+    strategy: str
+    latency_ms: float
+    usage: dict[str, Any]
+
+
+class JobResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    id: str
+    document_id: int
+    status: str
+    stage: str
+    attempts: int
+    error: str | None
+    created_at: datetime
+    updated_at: datetime
+    available_at: datetime
 
 
 class CategoryStat(BaseModel):
